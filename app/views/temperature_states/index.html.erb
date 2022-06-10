@@ -1,0 +1,26 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <h2>Is it hot, cold or warm today?<h2>
+  </div>
+
+  <div class='row'>
+    <%= form_tag root_path, method: :get do %>
+      <div class='col-md-6'>
+        <%= text_field_tag :postcode %>
+        <input type='submit' value='Find Weather Condition'>
+      </div>
+    <% end %>
+
+    <div class='col-md-6'>
+      <% if @error %>
+        <div><h2>Error occured</h2><div>
+        <div><h6><%= @error %></h6></div>
+      <% end %>
+
+      <% if @weather_condition %>
+        <div><h2>Tada!!!</h2><div>
+        <div><h6>It's <strong><%= @weather_condition %></strong> today</h6></div>
+      <% end %>
+    </div>
+  </div>
+</div>
